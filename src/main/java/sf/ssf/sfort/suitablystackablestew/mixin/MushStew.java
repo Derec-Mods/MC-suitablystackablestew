@@ -15,20 +15,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MushStew {
     @Inject(method = "finishUsing", at = @At("HEAD"), cancellable = true)
     private void use(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> info) {
-		if (stack.getItem() == Items.MUSHROOM_STEW) {
-			ItemStack result = new ItemStack(Items.BOWL);
-			if (user instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
-				if (!player.getInventory().insertStack(result.copy())) {
-					player.dropItem(result, false);
-				}
-			}
+        if (stack.getItem() == Items.MUSHROOM_STEW) {
+            info.setReturnValue(new ItemStack(Items.BOWL));
 
-			if (!(user instanceof PlayerEntity player) || !player.getAbilities().creativeMode) {
-				stack.decrement(1);
-			}
+            if (!stack.isEmpty() && user instanceof PlayerEntity) {
+                if (!((PlayerEntity) user).getAbilities().creativeMode) {
+                    ((PlayerEntity) user).getInventory().insertStack(new ItemStack(Items.BOWL));
+                }
+                info.setReturnValue(stack);
+            }
 
-			info.setReturnValue(result);
-			info.cancel();
-		}
+            info.cancel();
+        }
     }
 }
