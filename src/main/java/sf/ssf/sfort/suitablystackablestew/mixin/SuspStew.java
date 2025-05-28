@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Deprecated
 public class SuspStew extends Item {
-    public SuspStew(Settings settings) {
+    public SuspStew(net.minecraft.item.Item.Settings settings) {
         super(settings);
     }
 
