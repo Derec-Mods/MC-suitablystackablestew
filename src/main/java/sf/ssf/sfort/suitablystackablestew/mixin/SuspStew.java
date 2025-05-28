@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SuspiciousStewItem.class)
 public class SuspStew extends Item{
-	public SuspStew(net.minecraft.item.Item.Settings settings) {
+	public SuspStew(Settings settings) {
 		super(settings);
 	}
 	@Inject(method="finishUsing", at=@At("TAIL"), cancellable = true)
