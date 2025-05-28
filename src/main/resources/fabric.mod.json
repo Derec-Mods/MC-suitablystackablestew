@@ -6,10 +6,17 @@
   "name": "Suitably Stackable Stew",
   "description": "Allows beetroot, mushroom, rabbit and suspicious stew to stack up to 16",
   "authors": [
-    "SFort"
+    "SFort",
+    "DerexXD"
   ],
   "contact": {
     "sources": "https://github.com/SFort/MC-suitablystackablestew"
+  },
+
+  "entrypoints": {
+    "main": [
+      "sf.ssf.sfort.suitablystackablestew.SuitablyStackableStew"
+    ]
   },
 
   "license": "MIT",
