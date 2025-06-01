@@ -22,9 +22,6 @@
   "license": "MIT",
 
   "environment": "*",
-  "mixins": [
-    "suitablystackablestew.mixins.json"
-  ],
 
   "depends": {
     "fabricloader": "*",
